@@ -1,0 +1,2720 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+  <meta name="google-site-verification" content="YOUR_CODE">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aaron Savin Thomas — Builder. Thinker. Pilot One Day(hopefully)</title>
+<meta name="google-site-verification" content="dluRg2Dp41ZJkHBCi9Pz3qGqFcSkc8lhyyWZ3bNnEcw" />
+<meta name="description" content="Aaron Savin Thomas — 16-year-old developer from Bangalore building at the intersection of web, cybersecurity, and aviation.">
+
+<!-- ═══════ OPEN GRAPH / SOCIAL PREVIEW ═══════ -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://aaronst.netlify.app">
+<meta property="og:title"       content="Aaron Savin Thomas — Builder. Thinker. Pilot one day(Hopefully).">
+<meta property="og:description" content="Writing code, breaking things, and having opinions about aviation and software. Bangalore, India.">
+<meta property="og:image"       content="https://aaronst.netlify.app/og-image.png">
+<meta property="og:site_name"   content="Aaron Savin Thomas">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Aaron Savin Thomas">
+<meta name="twitter:description" content="Builder. Thinker. Pilot-in-training.">
+<meta name="twitter:image"       content="https://aaronst.netlify.app/og-image.png">
+
+<!-- ═══════ PWA ═══════ -->
+<meta name="theme-color" content="#0a0a0a" id="themeColorMeta">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Aaron ST">
+<link rel="apple-touch-icon" href="https://aaronst.netlify.app/icon-192.png">
+
+<!-- ═══════ FAVICON ═══════ -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='50%25' font-family='monospace' font-size='13' font-weight='700' fill='%23e8ff47' text-anchor='middle' dominant-baseline='central' letter-spacing='-1'%3EAST%3C/text%3E%3C/svg%3E">
+
+<!-- ═══════ FONTS ═══════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   THEME SYSTEM
+═══════════════════════════════════════════════ */
+html, html[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --accent: #e8ff47;
+  --accent2: #ff6b35;
+  --text: #f0ede8;
+  --muted: #888880;
+  --border: rgba(255,255,255,0.08);
+  --shadow: rgba(0,0,0,0.4);
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Syne', sans-serif;
+  --theme-icon: '🌙';
+}
+
+html[data-theme="light"] {
+  --bg: #fafaf7;
+  --bg2: #f0efe9;
+  --bg3: #e5e4dc;
+  --accent: #2563eb;
+  --accent2: #f97316;
+  --text: #1c1917;
+  --muted: #78716c;
+  --border: rgba(0,0,0,0.1);
+  --shadow: rgba(0,0,0,0.12);
+  --theme-icon: '☀️';
+}
+
+html[data-theme="contrast"] {
+  --bg: #000000;
+  --bg2: #0a0a0a;
+  --bg3: #141414;
+  --accent: #ffffff;
+  --accent2: #ffff00;
+  --text: #ffffff;
+  --muted: #cccccc;
+  --border: rgba(255,255,255,0.3);
+  --shadow: rgba(0,0,0,0.6);
+  --theme-icon: '◐';
+}
+
+html[data-theme="retro"] {
+  --bg: #0b130a;
+  --bg2: #0f1b0d;
+  --bg3: #152212;
+  --accent: #39ff14;
+  --accent2: #a3ff78;
+  --text: #c8ffc2;
+  --muted: #5a8a52;
+  --border: rgba(57,255,20,0.18);
+  --shadow: rgba(0,0,0,0.5);
+  --theme-icon: '>';
+}
+
+/* ═══════════════════════════════════════════════
+   RESET + BASE
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--display);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ═══════════════════════════════════════════════
+   SKIP LINK (a11y)
+═══════════════════════════════════════════════ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  z-index: 20000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 4rem;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+html[data-theme="light"] nav { background: rgba(250,250,247,0.9); }
+html[data-theme="contrast"] nav { background: rgba(0,0,0,0.95); }
+html[data-theme="retro"] nav { background: rgba(11,19,10,0.9); }
+
+nav.scrolled {
+  background: rgba(10,10,10,0.97);
+  box-shadow: 0 4px 24px var(--shadow);
+}
+html[data-theme="light"] nav.scrolled { background: rgba(250,250,247,0.98); }
+
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-decoration: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* ─── Theme Switcher ─── */
+.theme-toggle {
+  position: relative;
+}
+
+.theme-btn {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.theme-btn:hover { border-color: rgba(255,255,255,0.2); }
+
+.theme-icon { font-size: 0.9rem; line-height: 1; }
+
+.theme-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.2s, transform 0.2s;
+  min-width: 160px;
+  z-index: 200;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.theme-dropdown.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.06em;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+}
+.theme-option:hover { background: var(--bg3); color: var(--text); }
+.theme-option.active { color: var(--accent); }
+.theme-option .t-icon { width: 18px; text-align: center; }
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 4rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  animation: floatGlow2 10s ease-in-out infinite alternate;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,107,53,0.04) 0%, transparent 70%);
+  pointer-events: none;
+  animation: floatGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes floatGlow  { 0% { transform:translate(0,0); } 100% { transform:translate(40px,-30px); } }
+@keyframes floatGlow2 { 0% { transform:translate(0,0); } 100% { transform:translate(-30px,20px); } }
+
+.hero-tag {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-tag::before {
+  content: '';
+  display: inline-block;
+  width: 2rem; height: 1px;
+  background: var(--accent);
+}
+
+.hero h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+.hero h1 .line2 { color: var(--muted); }
+
+.hero-sub {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* ─── Spotify Now Playing ─── */
+.spotify-widget {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.6rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  max-width: 360px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s;
+}
+.spotify-widget.loaded { opacity: 1; transform: none; }
+.spotify-widget.playing { border-color: rgba(29,185,84,0.3); }
+.spotify-widget:not(.playing) { opacity: 0.6; }
+
+.spotify-art {
+  width: 36px; height: 36px;
+  border-radius: 2px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--bg3);
+  display: none;
+}
+.spotify-widget.playing .spotify-art { display: block; }
+
+.spotify-placeholder-art {
+  width: 36px; height: 36px;
+  border-radius: 2px;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.spotify-widget.playing .spotify-placeholder-art { display: none; }
+
+.spotify-info { flex: 1; min-width: 0; }
+.spotify-label {
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+.spotify-song {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.spotify-artist {
+  font-size: 0.65rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.spotify-bars span {
+  display: block;
+  width: 3px;
+  background: #1db954;
+  border-radius: 2px;
+  height: 6px;
+}
+.spotify-widget.playing .spotify-bars span {
+  animation: eqBar 0.8s ease-in-out infinite alternate;
+}
+.spotify-bars span:nth-child(1) { animation-delay: 0s;    }
+.spotify-bars span:nth-child(2) { animation-delay: 0.2s;  }
+.spotify-bars span:nth-child(3) { animation-delay: 0.4s;  }
+@keyframes eqBar {
+  0%   { height: 4px; }
+  100% { height: 18px; }
+}
+.spotify-logo {
+  width: 14px; height: 14px;
+  fill: #1db954;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem; left: 4rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  opacity: 0;
+  transform: translateY(30px);
+}
+.hero-scroll::after {
+  content: '';
+  display: block;
+  width: 40px; height: 1px;
+  background: var(--muted);
+  animation: scrollline 1.5s ease-in-out infinite alternate;
+}
+@keyframes scrollline {
+  from { width: 20px; opacity: 0.4; }
+  to   { width: 50px; opacity: 1;   }
+}
+
+/* ═══════════════════════════════════════════════
+   HERO ANIMATIONS
+═══════════════════════════════════════════════ */
+.hero-tag, .hero h1, .hero-sub, .hero-cta { opacity:0; transform:translateY(30px); }
+@keyframes heroReveal {
+  from { opacity:0; transform:translateY(30px); }
+  to   { opacity:1; transform:translateY(0);    }
+}
+body.loaded .hero-tag    { animation: heroReveal 0.8s cubic-bezier(0.22,1,0.36,1) 0.30s forwards; }
+body.loaded .hero h1     { animation: heroReveal 0.9s cubic-bezier(0.22,1,0.36,1) 0.45s forwards; }
+body.loaded .hero-sub    { animation: heroReveal 0.8s cubic-bezier(0.22,1,0.36,1) 0.65s forwards; }
+body.loaded .hero-cta    { animation: heroReveal 0.8s cubic-bezier(0.22,1,0.36,1) 0.80s forwards; }
+body.loaded .hero-scroll { animation: heroReveal 0.8s cubic-bezier(0.22,1,0.36,1) 1.00s forwards; }
+
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  top:50%; left:50%;
+  width:0; height:0;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+.btn:active::after { width:300px; height:300px; }
+
+.btn-primary { background: var(--accent); color: #0a0a0a; font-weight: 500; }
+.btn-primary:hover { filter: brightness(0.9); transform: translateY(-1px); }
+
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); }
+
+html[data-theme="light"] .btn-primary { color: #ffffff; }
+
+/* ═══════════════════════════════════════════════
+   SECTIONS
+═══════════════════════════════════════════════ */
+section { padding: 6rem 4rem; border-top: 1px solid var(--border); }
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 0;
+  height: 1px;
+  background: var(--border);
+  transition: max-width 0.6s cubic-bezier(0.22,1,0.36,1);
+}
+.section-label.visible::after { max-width: 80px; }
+
+/* ═══════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════ */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ─── Profile Photo ─── */
+.about-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.profile-photo-wrap {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.3s;
+  flex-shrink: 0;
+}
+.profile-photo-wrap:hover { border-color: rgba(232,255,71,0.3); }
+
+.profile-photo-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder shown when photo missing */
+.photo-placeholder {
+  width: 100%; height: 100%;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 1.8rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.about-photo-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.about-text p {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+.about-text p span { color: var(--text); }
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(232,255,71,0.2);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.stat-num {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.03em;
+}
+.stat-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════════════
+   PHOTO STRIP
+═══════════════════════════════════════════════ */
+.photos-section {
+  padding: 3rem 4rem 5rem;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.photos-strip-wrap {
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin: 0 -4rem;
+  padding: 0 4rem;
+}
+.photos-strip-wrap::-webkit-scrollbar { display: none; }
+
+.photos-strip {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+}
+
+.photo-frame {
+  position: relative;
+  width: 260px;
+  height: 175px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  background: var(--bg2);
+  cursor: default;
+}
+.photo-frame:hover {
+  border-color: rgba(232,255,71,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px var(--shadow);
+}
+
+.photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.photo-frame:hover img { transform: scale(1.04); }
+
+.photo-frame-num {
+  position: absolute;
+  bottom: 0.5rem; right: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em;
+  background: rgba(0,0,0,0.4);
+  padding: 0.2rem 0.4rem;
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+.photo-placeholder-frame {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--bg3);
+}
+.photo-placeholder-frame .ph-icon {
+  font-size: 1.5rem;
+  opacity: 0.4;
+}
+.photo-placeholder-frame .ph-text {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+/* ═══════════════════════════════════════════════
+   MUSIC SECTION
+═══════════════════════════════════════════════ */
+.music-section {
+  padding: 0 4rem 5rem;
+  border-top: none;
+}
+
+.music-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.music-header .section-label {
+  margin-bottom: 0;
+}
+
+.music-header-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.music-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+  overflow: hidden;
+}
+
+.music-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+
+.music-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+.music-card:hover::before { transform: scaleY(1); }
+
+.music-vinyl {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--bg3) 0deg, var(--bg) 40deg,
+    var(--bg3) 80deg, var(--bg) 120deg,
+    var(--bg3) 160deg, var(--bg) 200deg,
+    var(--bg3) 240deg, var(--bg) 280deg,
+    var(--bg3) 320deg, var(--bg) 360deg
+  );
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  transition: transform 1.2s linear;
+}
+.music-card:hover .music-vinyl {
+  animation: spin 2.5s linear infinite;
+}
+.music-vinyl::after {
+  content: '';
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.music-info { flex: 1; min-width: 0; }
+
+.music-band {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.music-fave {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
+}
+
+.music-tags {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.music-tag {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.07em;
+  color: var(--accent);
+  border: 1px solid rgba(232,255,71,0.2);
+  padding: 0.15rem 0.45rem;
+  border-radius: 1px;
+  text-transform: uppercase;
+}
+
+html[data-theme="light"] .music-tag {
+  color: var(--accent);
+  border-color: rgba(37,99,235,0.25);
+}
+
+@media (max-width: 768px) {
+  .music-section { padding: 0 1.5rem 4rem; }
+  .music-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+}
+
+/* ─── Tech Filter Bar ─── */
+.tech-filter-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.tech-filter-label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.tech-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-key {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.85rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  top: 0;
+  box-shadow: 0 2px 0 var(--border);
+}
+.tech-key:hover {
+  color: var(--text);
+  border-color: rgba(255,255,255,0.2);
+  top: 1px;
+  box-shadow: 0 1px 0 var(--border);
+}
+.tech-key.active {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
+  top: 2px;
+  box-shadow: none;
+}
+html[data-theme="light"] .tech-key.active { color: #ffffff; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.4s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top:0; left:0; right:0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.project-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  background: var(--bg3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px var(--shadow);
+}
+.project-card:hover::before { transform: scaleX(1); }
+
+.project-card.dimmed {
+  opacity: 0.3;
+  transform: scale(0.97) !important;
+}
+
+.project-num {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+.project-desc {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 1px;
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.tag:hover {
+  color: var(--accent);
+  border-color: rgba(232,255,71,0.3);
+}
+.project-card:hover .tag {
+  border-color: rgba(232,255,71,0.15);
+  color: var(--text);
+}
+.project-arrow {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  color: var(--muted);
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.project-card:hover .project-arrow {
+  color: var(--accent);
+  transform: translate(2px,-2px);
+}
+
+/* ═══════════════════════════════════════════════
+   ACHIEVEMENTS
+═══════════════════════════════════════════════ */
+.ach-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.ach-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.ach-item:hover {
+  transform: translateX(4px);
+  border-color: rgba(232,255,71,0.15);
+}
+.ach-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+  transition: box-shadow 0.3s;
+}
+.ach-item:hover .ach-dot { box-shadow: 0 0 8px rgba(232,255,71,0.5); }
+
+.ach-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.ach-sub {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* ═══════════════════════════════════════════════
+   BLOG
+═══════════════════════════════════════════════ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.blog-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.blog-card:hover {
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--shadow);
+}
+.blog-date {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+.blog-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.blog-excerpt {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.blog-read-more {
+  margin-top: 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+}
+.blog-coming-soon {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 2rem;
+  border: 1px dashed var(--border);
+  border-radius: 2px;
+}
+.blog-coming-soon p {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   MINI MUSIC PLAYER
+═══════════════════════════════════════════════ */
+.player-section {
+  padding: 5rem 4rem;
+  border-top: 1px solid var(--border);
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.player-header .section-label { margin-bottom: 0; }
+
+.player-header-note {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.player-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.player-track {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* progress fill on hover */
+.player-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(29,185,84,0.06) 0%, transparent 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.player-track:hover {
+  border-color: rgba(29,185,84,0.35);
+  transform: translateX(4px);
+  box-shadow: 0 6px 24px var(--shadow);
+}
+.player-track:hover::before { transform: scaleX(1); }
+
+.track-num {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.track-play {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.track-play svg {
+  width: 12px;
+  height: 12px;
+  fill: var(--muted);
+  margin-left: 2px;
+  transition: fill 0.2s;
+}
+
+.player-track:hover .track-play {
+  background: #1db954;
+  border-color: #1db954;
+}
+.player-track:hover .track-play svg { fill: #fff; }
+
+/* Pulsing ring on hover */
+.player-track:hover .track-play::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(29,185,84,0.35);
+  animation: trackPulse 1s ease-out infinite;
+}
+@keyframes trackPulse {
+  0%   { transform: scale(1);    opacity: 0.8; }
+  100% { transform: scale(1.45); opacity: 0;   }
+}
+
+.track-info { flex: 1; min-width: 0; }
+
+.track-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+.track-artist {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.track-duration {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  flex-shrink: 0;
+  letter-spacing: 0.05em;
+}
+
+/* Waveform bars (visible on hover of track) */
+.track-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.player-track:hover .track-wave { opacity: 1; }
+.track-wave span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: #1db954;
+}
+.player-track:hover .track-wave span {
+  animation: waveBar 0.7s ease-in-out infinite alternate;
+}
+.track-wave span:nth-child(1) { height:6px;  animation-delay: 0s;    }
+.track-wave span:nth-child(2) { height:14px; animation-delay: 0.15s; }
+.track-wave span:nth-child(3) { height:9px;  animation-delay: 0.3s;  }
+.track-wave span:nth-child(4) { height:17px; animation-delay: 0.1s;  }
+.track-wave span:nth-child(5) { height:6px;  animation-delay: 0.25s; }
+@keyframes waveBar {
+  from { transform: scaleY(0.4); }
+  to   { transform: scaleY(1);   }
+}
+
+.spotify-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: transparent;
+  border: 1px solid rgba(29,185,84,0.35);
+  color: #1db954;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.4rem;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.spotify-cta:hover {
+  background: rgba(29,185,84,0.1);
+  border-color: #1db954;
+  transform: translateY(-1px);
+}
+.spotify-cta svg { width: 15px; height: 15px; fill: #1db954; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .player-section { padding: 4rem 1.5rem; }
+  .track-wave { display: none; }
+  .track-duration { display: none; }
+}
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+/* Left column: heading + tagline + links all stacked */
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.contact-text h2 {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.contact-text h2 span { color: var(--accent); }
+.contact-text p {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.75rem;
+}
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+.contact-link:hover {
+  color: var(--text);
+  transform: translateX(6px);
+}
+.contact-link-icon {
+  width: 36px; height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+.contact-link:hover .contact-link-icon {
+  border-color: rgba(232,255,71,0.3);
+  color: var(--accent);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.form-group label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.form-group input,
+.form-group textarea {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  padding: 0.85rem 1rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  resize: none;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: rgba(232,255,71,0.4);
+  box-shadow: 0 0 0 3px rgba(232,255,71,0.08);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: #444; }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+footer p {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+footer p span { color: var(--accent); }
+
+/* ─── Weather Widget ─── */
+.weather-widget {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.weather-icon { font-size: 1rem; }
+.weather-sep { opacity: 0.4; margin: 0 0.2rem; }
+.weather-time { color: var(--text); }
+
+/* ═══════════════════════════════════════════════
+   LOADING SCREEN
+═══════════════════════════════════════════════ */
+.loader {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-bar-track {
+  width: 180px; height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2rem;
+}
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.loader-text {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+.loader-logo {
+  font-family: var(--mono);
+  font-size: 1.5rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  animation: loaderPulse 1.2s ease-in-out infinite;
+}
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1;   }
+}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════════════ */
+.cursor-dot {
+  position: fixed; top:0; left:0;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  mix-blend-mode: difference;
+}
+.cursor-ring {
+  position: fixed; top:0; left:0;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(232,255,71,0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.08s;
+  mix-blend-mode: difference;
+}
+.cursor-dot.hover  { transform: translate(-50%,-50%) scale(2.5); background: var(--accent2); }
+.cursor-ring.hover { width:56px; height:56px; border-color:rgba(255,107,53,0.5); }
+.cursor-ring.click { width:28px; height:28px; border-color:rgba(232,255,71,0.8); }
+@media (pointer: coarse) { .cursor-dot, .cursor-ring { display: none; } }
+body.custom-cursor-active { cursor: none; }
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active input,
+body.custom-cursor-active textarea { cursor: none; }
+
+/* ═══════════════════════════════════════════════
+   FADE IN / STAGGER
+═══════════════════════════════════════════════ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
+}
+.fade-in.visible { opacity: 1; transform: none; }
+
+.stagger-children .fade-in:nth-child(1) { transition-delay: 0.00s; }
+.stagger-children .fade-in:nth-child(2) { transition-delay: 0.08s; }
+.stagger-children .fade-in:nth-child(3) { transition-delay: 0.16s; }
+.stagger-children .fade-in:nth-child(4) { transition-delay: 0.24s; }
+.stagger-children .fade-in:nth-child(5) { transition-delay: 0.32s; }
+.stagger-children .fade-in:nth-child(6) { transition-delay: 0.40s; }
+.stagger-children .fade-in:nth-child(7) { transition-delay: 0.48s; }
+.stagger-children .fade-in:nth-child(8) { transition-delay: 0.56s; }
+
+/* ═══════════════════════════════════════════════
+   MAGNETIC BUTTON
+═══════════════════════════════════════════════ */
+.btn { transition: all 0.3s cubic-bezier(0.22,1,0.36,1); }
+
+/* ═══════════════════════════════════════════════
+   MISC
+═══════════════════════════════════════════════ */
+.highlight { color: var(--accent); }
+
+/* ═══════════════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════════════ */
+@media (max-width: 960px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-photo-col { flex-direction: row; justify-content: flex-start; }
+}
+@media (max-width: 768px) {
+  nav { padding: 1.25rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .nav-links li:nth-child(n+4) { display: none; }
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .hero-scroll { left: 1.5rem; }
+  section { padding: 4rem 1.5rem; }
+  .photos-section { padding: 2rem 1.5rem 4rem; }
+  .photos-strip-wrap { margin: 0 -1.5rem; padding: 0 1.5rem; }
+  .ach-list, .blog-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  footer { padding: 1.5rem; flex-direction: column; text-align: center; }
+  .theme-dropdown { right: -1rem; }
+}
+
+/* ═══════════════════════════════════════════════
+   RETRO THEME EXTRAS
+═══════════════════════════════════════════════ */
+html[data-theme="retro"] body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(57,255,20,0.012) 2px,
+    rgba(57,255,20,0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+html[data-theme="retro"] .project-card::before,
+html[data-theme="retro"] .section-label::after {
+  background: var(--accent);
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════════════ */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent);
+  z-index: 10001;
+  pointer-events: none;
+  will-change: width;
+  box-shadow: 0 0 6px rgba(232,255,71,0.45);
+  transition: width 0.05s linear;
+}
+html[data-theme="light"]    #scroll-progress { box-shadow: 0 0 4px rgba(37,99,235,0.4); }
+html[data-theme="retro"]    #scroll-progress { box-shadow: 0 0 10px rgba(57,255,20,0.7); }
+html[data-theme="contrast"] #scroll-progress { background: #fff; }
+
+/* ═══════════════════════════════════════════════
+   GRAIN TEXTURE (pure CSS, zero JS, zero network)
+═══════════════════════════════════════════════ */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.028;
+  pointer-events: none;
+  z-index: 9990;
+  transform: translateZ(0);
+  will-change: transform;
+}
+html[data-theme="retro"]    body::after { opacity: 0.055; }
+html[data-theme="contrast"] body::after { opacity: 0.012; }
+html[data-theme="light"]    body::after { opacity: 0.018; }
+</style>
+</head>
+<body>
+
+<!-- Skip nav (a11y) -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress" aria-hidden="true"></div>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader" role="status" aria-label="Loading">
+  <div class="loader-logo" aria-hidden="true">AST_</div>
+  <div class="loader-bar-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="loader-bar" id="loaderBar"></div>
+  </div>
+  <div class="loader-text" id="loaderText">loading</div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo" aria-label="Aaron Savin Thomas - Home">AST_</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <!-- Theme Switcher -->
+    <div class="theme-toggle" id="themeToggle">
+      <button class="theme-btn" id="themeBtn" aria-haspopup="true" aria-expanded="false" aria-label="Switch theme">
+        <span class="theme-icon" id="themeIcon" aria-hidden="true">🌙</span>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <div class="theme-dropdown" id="themeDropdown" role="menu" aria-label="Theme options">
+        <button class="theme-option active" data-theme="dark"     role="menuitem"><span class="t-icon">🌙</span> Dark</button>
+        <button class="theme-option"         data-theme="light"    role="menuitem"><span class="t-icon">☀️</span> Light</button>
+        <button class="theme-option"         data-theme="system"   role="menuitem"><span class="t-icon">💻</span> System</button>
+        <button class="theme-option"         data-theme="contrast" role="menuitem"><span class="t-icon">◐</span> High Contrast</button>
+        <button class="theme-option"         data-theme="retro"    role="menuitem"><span class="t-icon">⌨</span> Retro</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<main id="main">
+<section class="hero" aria-label="Introduction">
+  <div class="hero-tag" aria-label="Location and local time">Bangalore, India &nbsp;·&nbsp; <span id="heroClockIST">—:—:— —M</span></div>
+  <h1>
+    Aaron Savin<br>
+    <span class="line2">Thomas.</span>
+  </h1>
+  <p class="hero-sub">
+    Builder. Thinker. Soon to be Pilot. (hopefully)<br>
+    I write code, break things, and have opinions about aviation, software, and everything in between and a proud Josephite.
+  </p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">See my work →</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+
+  <!-- Spotify / Lanyard Now Playing -->
+  <div class="spotify-widget" id="spotifyWidget" aria-live="polite" aria-label="Currently playing music">
+    <div class="spotify-bars" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="spotify-placeholder-art" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--muted)">
+        <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+      </svg>
+    </div>
+    <img class="spotify-art" id="spotifyArt" src="" alt="Album art" loading="lazy">
+    <div class="spotify-info">
+      <div class="spotify-label" id="spotifyLabel">Not playing</div>
+      <div class="spotify-song" id="spotifySong">—</div>
+      <div class="spotify-artist" id="spotifyArtist">Link Spotify via Discord + Lanyard</div>
+    </div>
+    <svg class="spotify-logo" viewBox="0 0 24 24" aria-label="Spotify" role="img">
+      <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+    </svg>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">scroll</div>
+</section>
+
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="section-label" aria-hidden="true">About</div>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <h2 id="about-heading">Sixteen. Self-taught.<br>Unreasonably curious.</h2>
+      <p>
+        I'm a <span>Class 10 ICSE graduate</span> from Bangalore, heading into Class 11 at St. Joseph's Boys' High School. I've been building on the web since I was 10, and I haven't really stopped.
+      </p>
+     <p>
+        My interests run from <span>cybersecurity and website building</span> to <span>commercial aviation</span>. Long-term, I'm targeting a job as a pilot one day and eventually flying the A350-1000. Short-term: writing code, learning Python, and playing too much guitar.
+      </p>
+      <p>
+        I run <span>KDE Neon</span>, know HTML/CSS/JS, and am building out my Python. I love gaming now and then, reading, and I have a growing obsession with aviation systems and how they work.
+      </p>
+    </div>
+
+    <!-- Profile Photo -->
+    <div class="about-photo-col fade-in">
+      <div class="profile-photo-wrap">
+        <!--
+          PHOTO SETUP:
+          Create a folder called "photos/" next to your index.html
+          Add a square headshot named "profile.jpg" (ideally 500×500px)
+          Then replace the placeholder div below with:
+          <img src="photos/profile.jpg" alt="Aaron Savin Thomas" loading="lazy">
+        -->
+          <img src="photos/profile.jpg" alt="Aaron Savin Thomas" loading="lazy">
+      </div>
+      <div class="about-photo-label" aria-hidden="true">@aaronst</div>
+    </div>
+
+    <div class="about-stats fade-in">
+      <div class="stat-card">
+        <div class="stat-num" aria-label="More than 12 projects">12+</div>
+        <div class="stat-label">Projects built &amp; deployed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">6yr</div>
+        <div class="stat-label">Building on the web</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Awards &amp; certifications</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Tabs open right now</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ PHOTO STRIP ═══════ -->
+<!--
+  PHOTO STRIP SETUP:
+  Add these files to a "photos/" folder next to your index.html:
+    photos/shot-1.jpg  → 16:9 landscape — at your desk / setup / guitar
+    photos/shot-2.jpg  → 16:9 landscape — event, hackathon, or on stage
+    photos/shot-3.jpg  → 16:9 landscape — anything candid / travel / you
+  Then replace each photo-placeholder-frame div with:
+    <img src="photos/shot-X.jpg" alt="Description" loading="lazy">
+-->
+<div class="photos-section" aria-label="Photo gallery">
+  <div class="section-label" aria-hidden="true">Life &amp; Moments</div>
+  <div class="photos-strip-wrap" role="region" aria-label="Scrollable photo strip">
+    <div class="photos-strip">
+
+      <div class="photo-frame fade-in" aria-label="Photo 1">
+
+        <img src="photos/shot-1.jpg" alt="Side quests" loading="lazy">
+        <div class="photo-frame-num" aria-hidden="true">01</div>
+      </div>
+
+      <div class="photo-frame fade-in" aria-label="Photo 2">
+
+        <img src="photos/shot-2.jpg" alt="Trip to Kochi" loading="lazy">
+        <div class="photo-frame-num" aria-hidden="true">02</div>
+      </div>
+
+      <div class="photo-frame fade-in" aria-label="Photo 3">
+
+        <img src="photos/shot-3.jpg" alt="Graduation" loading="lazy">
+        <div class="photo-frame-num" aria-hidden="true">03</div>
+      </div>
+
+      <div class="photo-frame fade-in" aria-label="Photo 3">
+
+        <img src="photos/shot-4.jpg" alt="Graduation" loading="lazy">
+        <div class="photo-frame-num" aria-hidden="true">04</div>
+      </div>
+      <div class="photo-frame fade-in" aria-label="Photo 3">
+
+        <img src="photos/shot-5.jpg" alt="Graduation" loading="lazy">
+        <div class="photo-frame-num" aria-hidden="true">05</div>
+      </div><div class="photo-frame fade-in" aria-label="Photo 3">
+
+        <img src="photos/shot-6.jpg" alt="Graduation" loading="lazy">
+        <div class="photo-frame-num" aria-hidden="true">06</div>
+      </div>
+
+      <div class="photo-frame fade-in" style="width:200px" aria-label="More coming">
+        <div class="photo-placeholder-frame">
+          <span class="ph-icon" aria-hidden="true">+</span>
+          <span class="ph-text">More coming</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- ═══════ PROJECTS ═══════ -->
+<section id="projects" aria-labelledby="projects-heading">
+  <div class="section-label" aria-hidden="true">Projects</div>
+  <h2 id="projects-heading" class="sr-only">Projects</h2>
+
+  <!-- Interactive Tech Stack Filter -->
+  <div class="tech-filter-wrap fade-in">
+    <div class="tech-filter-label" id="filterLabel">Filter by stack</div>
+    <div class="tech-filter" id="techFilter" role="group" aria-labelledby="filterLabel">
+      <button class="tech-key active" data-filter="all"      aria-pressed="true">All</button>
+      <button class="tech-key"        data-filter="firebase"  aria-pressed="false">Firebase</button>
+      <button class="tech-key"        data-filter="security"  aria-pressed="false">Security</button>
+      <button class="tech-key"        data-filter="api"       aria-pressed="false">REST API</button>
+      <button class="tech-key"        data-filter="speech"    aria-pressed="false">Web Speech</button>
+      <button class="tech-key"        data-filter="python"    aria-pressed="false">Python</button>
+    </div>
+  </div>
+
+  <div class="projects-grid stagger-children" id="projectsGrid">
+
+    <a href="https://firechataaron.netlify.app/" target="_blank" rel="noopener noreferrer"
+       class="project-card fade-in"
+       data-tags="html firebase real-time"
+       aria-label="Meme Chat project — opens in new tab">
+      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="project-num" aria-hidden="true">01</div>
+      <div class="project-title">Meme Chat</div>
+      <div class="project-desc">Anonymous real-time chat — no signup, no login. Built because accounts are overrated.</div>
+      <div class="project-tags" aria-label="Technologies used">
+        <span class="tag" data-tag="html">HTML/CSS/JS</span>
+        <span class="tag" data-tag="firebase">Firebase</span>
+        <span class="tag" data-tag="real-time">Real-time</span>
+      </div>
+    </a>
+
+    <a href="https://pass-lib.netlify.app/" target="_blank" rel="noopener noreferrer"
+       class="project-card fade-in"
+       data-tags="html security localstorage"
+       aria-label="Password Manager project — opens in new tab">
+      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="project-num" aria-hidden="true">02</div>
+      <div class="project-title">Password Manager</div>
+      <div class="project-desc">Save and generate passwords for any site. Client-side — no data ever leaves your browser.</div>
+      <div class="project-tags" aria-label="Technologies used">
+        <span class="tag" data-tag="html">HTML/CSS/JS</span>
+        <span class="tag" data-tag="security">Security</span>
+        <span class="tag" data-tag="localstorage">LocalStorage</span>
+      </div>
+    </a>
+
+    <a href="https://weatheraaron.netlify.app/" target="_blank" rel="noopener noreferrer"
+       class="project-card fade-in"
+       data-tags="html api rest geolocation"
+       aria-label="Weather App project — opens in new tab">
+      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="project-num" aria-hidden="true">03</div>
+      <div class="project-title">Weather App</div>
+      <div class="project-desc">Live weather by location. Clean UI, real data from a public REST API.</div>
+      <div class="project-tags" aria-label="Technologies used">
+        <span class="tag" data-tag="html">HTML/CSS/JS</span>
+        <span class="tag" data-tag="api">REST API</span>
+        <span class="tag" data-tag="geolocation">Geolocation</span>
+      </div>
+    </a>
+
+    <a href="https://climate-chaos.netlify.app/" target="_blank" rel="noopener noreferrer"
+       class="project-card fade-in"
+       data-tags="html api hackathon data-viz"
+       aria-label="Climate Chaos project — opens in new tab">
+      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="project-num" aria-hidden="true">04</div>
+      <div class="project-title">Climate Chaos</div>
+      <div class="project-desc">Built for NPSI Hacks. Climate data visualisation and awareness tool with live API data.</div>
+      <div class="project-tags" aria-label="Technologies used">
+        <span class="tag" data-tag="html">HTML/CSS/JS</span>
+        <span class="tag" data-tag="hackathon">Hackathon</span>
+        <span class="tag" data-tag="api">REST API</span>
+        <span class="tag" data-tag="data-viz">Data Viz</span>
+      </div>
+    </a>
+
+    <a href="https://pomodoroaaron.netlify.app" target="_blank" rel="noopener noreferrer"
+       class="project-card fade-in"
+       data-tags="html productivity"
+       aria-label="Pomodoro Timer project — opens in new tab">
+      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="project-num" aria-hidden="true">05</div>
+      <div class="project-title">Pomodoro Timer</div>
+      <div class="project-desc">Focus timer with session tracking. Minimal, distraction-free by design.</div>
+      <div class="project-tags" aria-label="Technologies used">
+        <span class="tag" data-tag="html">HTML/CSS/JS</span>
+        <span class="tag" data-tag="productivity">Productivity</span>
+      </div>
+    </a>
+
+    <a href="https://audionotesaaron.netlify.app/" target="_blank" rel="noopener noreferrer"
+       class="project-card fade-in"
+       data-tags="html speech accessibility"
+       aria-label="Audio Notes project — opens in new tab">
+      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="project-num" aria-hidden="true">06</div>
+      <div class="project-title">Audio Notes</div>
+      <div class="project-desc">Speak, it writes. Speech-to-text note taking using the Web Speech API — accessibility first.</div>
+      <div class="project-tags" aria-label="Technologies used">
+        <span class="tag" data-tag="html">HTML/CSS/JS</span>
+        <span class="tag" data-tag="speech">Web Speech API</span>
+        <span class="tag" data-tag="accessibility">Accessibility</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════ ACHIEVEMENTS ═══════ -->
+<section id="achievements" aria-labelledby="achievements-heading">
+  <div class="section-label" aria-hidden="true">Achievements</div>
+  <h2 id="achievements-heading" class="sr-only">Achievements</h2>
+  <div class="ach-list stagger-children">
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">IGKO Zonal Rank 8</div>
+        <div class="ach-sub">International General Knowledge Olympiad — Class 9</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">Eduace Quest Quiz — 1st Place</div>
+        <div class="ach-sub">Regionals 2nd · Finale 1st</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">Best Actor — OBA Buzz Dramatics</div>
+        <div class="ach-sub">2025–26</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">Homi Bhabha Merit Certificate</div>
+        <div class="ach-sub">2024–25</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">Bifrost 2024 — 1st Place</div>
+        <div class="ach-sub">Tech event, SJBHS</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">CoMUN 2025 — Honourable Delegate</div>
+        <div class="ach-sub">Model United Nations</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">Event Head — Aurum &amp; Matrix Eucranium</div>
+        <div class="ach-sub">2024 &amp; 2025</div>
+      </div>
+    </div>
+
+    <div class="ach-item fade-in">
+      <div class="ach-dot" aria-hidden="true"></div>
+      <div class="ach-content">
+        <div class="ach-title">LTC Certificate + Design Thinking Workshop</div>
+        <div class="ach-sub">Class 9 &amp; 10</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ BLOG ═══════ -->
+<section id="blog" aria-labelledby="blog-heading">
+  <div class="section-label" aria-hidden="true">Blog</div>
+  <h2 id="blog-heading" class="sr-only">Blog</h2>
+  <div class="blog-grid stagger-children">
+
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: Why I built a real-time chat app without any auth">
+      <div class="blog-date">March 14, 2026</div>
+      <div class="blog-title">Why I Built a Real-Time Chat App With Zero Authentication</div>
+      <div class="blog-excerpt">
+        Everyone told me you need login for a chat app. Here's why they're wrong, how Firebase Realtime Database handles anonymous sessions, and what I learned about building without assumptions.
+      </div>
+    </a>
+
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: Why I built a real-time chat app without any auth">
+      <div class="blog-date">March 31, 2026</div>
+      <div class="blog-title">Reading Animal Farm-George Orwell</div>
+      <div class="blog-excerpt">
+It’s a wild look at how "equality" usually just turns into a massive power trip. Basically, it’s a reminder that the people who start the revolution often end up being the worst ones in charge.
+      </div>
+    </a>
+
+    <div class="blog-coming-soon fade-in" aria-label="More blog posts coming soon">
+      <p>More posts on the way — aviation systems, Python,Books and my other interests.</p>
+      <a href="/cdn-cgi/l/email-protection#b8d9d9cad7d6cbd9ced9dfddd3d1dcf8dfd5d9d1d496dbd7d5" class="btn btn-outline" aria-label="Get notified when new posts are published">Message me</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ MINI MUSIC PLAYER ═══════ -->
+<section class="player-section" aria-labelledby="player-heading">
+  <div class="player-header">
+    <div style="display:flex;align-items:baseline;gap:1rem">
+      <div class="section-label" aria-hidden="true">Currently Feeling</div>
+      <span class="player-header-note">click to open on Spotify</span>
+    </div>
+    <a href="https://open.spotify.com/user/qze7r12g2f6rthuzbk73exdpn?si=2b934425ff524ea5"
+       target="_blank" rel="noopener noreferrer"
+       class="spotify-cta fade-in"
+       aria-label="View full playlist on Spotify">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      View more on Spotify →
+    </a>
+  </div>
+
+  <div class="player-tracks stagger-children" id="playerTracks">
+
+    <a href="https://open.spotify.com/search/When%20You%20Came%20Into%20My%20Life%20Scorpions"
+       target="_blank" rel="noopener noreferrer"
+       class="player-track fade-in"
+       aria-label="When You Came Into My Life by Scorpions — open on Spotify">
+      <span class="track-num" aria-hidden="true">01</span>
+      <div class="track-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="track-info">
+        <div class="track-title">When You Came Into My Life</div>
+        <div class="track-artist">Scorpions</div>
+      </div>
+      <div class="track-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="track-duration" aria-label="Duration: 4 minutes 5 seconds">4:05</div>
+    </a>
+
+    <a href="https://open.spotify.com/search/Tum%20Ho%20Toh%20Farhan%20Akhtar"
+       target="_blank" rel="noopener noreferrer"
+       class="player-track fade-in"
+       aria-label="Tum Ho Toh by Farhan Akhtar — open on Spotify">
+      <span class="track-num" aria-hidden="true">02</span>
+      <div class="track-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="track-info">
+        <div class="track-title">Tum Ho Toh</div>
+        <div class="track-artist">Farhan Akhtar · Rock On!!</div>
+      </div>
+      <div class="track-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="track-duration" aria-label="Duration: 5 minutes 12 seconds">5:12</div>
+    </a>
+
+    <a href="https://open.spotify.com/search/She%27s%20Electric%20Oasis"
+       target="_blank" rel="noopener noreferrer"
+       class="player-track fade-in"
+       aria-label="She's Electric by Oasis — open on Spotify">
+      <span class="track-num" aria-hidden="true">03</span>
+      <div class="track-play" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="track-info">
+        <div class="track-title">She's Electric</div>
+        <div class="track-artist">Oasis · (What's the Story) Morning Glory?</div>
+      </div>
+      <div class="track-wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="track-duration" aria-label="Duration: 2 minutes 11 seconds">2:11</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="section-label" aria-hidden="true">Contact</div>
+  <div class="contact-inner">
+    <div class="contact-left fade-in">
+      <div class="contact-text">
+        <h2 id="contact-heading">Let's<br><span>talk.</span></h2>
+        <p>Got a project, a question, or just want to argue about the best game? I'm reachable.</p>
+      </div>
+      <div class="contact-links" aria-label="Contact links" role="navigation">
+        <a href="mailto:aaronst.03@yahoo.com" class="contact-link">
+          <div class="contact-link-icon" aria-hidden="true">@</div>
+          aaronst.03@yahoo.com
+        </a>
+        <a href="https://instagram.com/aaronst.03" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <div class="contact-link-icon" aria-hidden="true">ig</div>
+          @aaronst.03
+        </a>
+        <a href="https://github.com/aaron0301" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <div class="contact-link-icon" aria-hidden="true">gh</div>
+          GitHub
+        </a>
+        <a href="https://aaronst.pages.dev" class="contact-link">
+          <div class="contact-link-icon" aria-hidden="true">↗</div>
+          aaronst.pages.dev
+        </a>
+      </div>
+    </div>
+
+    <!-- Netlify form -->
+    <form
+  action="https://formspree.io/f/xyylelnj"
+  method="POST"
+>
+      <input type="hidden" name="form-name" value="contact">
+      <div class="form-group">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" type="text" name="name" placeholder="Your name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="contact-msg">Message</label>
+        <textarea id="contact-msg" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="align-self:flex-start;" id="submitBtn">
+        Send message →
+      </button>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <p>© 2026 Aaron Savin Thomas — <span>Bangalore, India</span></p>
+
+  <!-- Live Weather + Time Widget -->
+  <div class="weather-widget" id="weatherWidget" aria-live="polite" aria-label="Current weather and time in Bangalore">
+    <span class="weather-icon" id="weatherIcon" aria-hidden="true">🌤</span>
+    <span id="weatherTemp">—°C</span>
+    <span class="weather-sep" aria-hidden="true">·</span>
+    <span class="weather-time" id="localTime" aria-label="Local time">—:—</span>
+    <span class="weather-sep" aria-hidden="true">·</span>
+    <span>Bangalore</span>
+  </div>
+
+  <p>Built with HTML/CSS/JS — no frameworks</p>
+</footer>
+
+<!-- SR only utility -->
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   CONFIG — fill these in
+══════════════════════════════════════════════════════ */
+/*
+  LANYARD / SPOTIFY SETUP:
+  1. Join the Lanyard Discord server: https://discord.gg/lanyard
+  2. Link Spotify to your Discord account
+  3. Find your Discord User ID:
+     Discord → Settings → Advanced → Enable Developer Mode
+     Right-click your profile → Copy User ID
+  4. Paste it below.
+*/
+const DISCORD_USER_ID = '1123655239921311834'; // ← replace this
+
+/* ══════════════════════════════════════════════════════
+   LOADING SCREEN — bulletproof version
+══════════════════════════════════════════════════════ */
+const loader    = document.getElementById('loader');
+const loaderBar = document.getElementById('loaderBar');
+const loaderTxt = document.getElementById('loaderText');
+
+function dismissLoader() {
+  if (!loader || loader.classList.contains('done')) return;
+  loaderBar.style.width = '100%';
+  loaderTxt.textContent = 'ready';
+  clearInterval(loadInterval);
+  setTimeout(() => {
+    loader.classList.add('done');
+    document.body.classList.add('loaded');
+  }, 250);
+}
+
+let progress = 0;
+const loadingWords = ['loading', 'preparing', 'almost there', 'ready'];
+let wordIndex = 0;
+
+const loadInterval = setInterval(() => {
+  progress += Math.random() * 22 + 8;
+  if (progress > 100) progress = 100;
+  loaderBar.style.width = progress + '%';
+  if (progress > 25 * (wordIndex + 1) && wordIndex < loadingWords.length - 1) {
+    wordIndex++;
+    loaderTxt.textContent = loadingWords[wordIndex];
+  }
+  if (progress >= 100) dismissLoader();
+}, 120);
+
+// Trigger as soon as DOM + resources are ready
+window.addEventListener('load', () => setTimeout(dismissLoader, 600));
+// Hard failsafe: always dismiss after 3.5s no matter what
+setTimeout(dismissLoader, 3500);
+
+/* ══════════════════════════════════════════════════════
+   THEME SWITCHER
+══════════════════════════════════════════════════════ */
+const themeBtn      = document.getElementById('themeBtn');
+const themeDropdown = document.getElementById('themeDropdown');
+const themeIcon     = document.getElementById('themeIcon');
+const themeLabel    = document.getElementById('themeLabel');
+const themeColorMeta = document.getElementById('themeColorMeta');
+
+const themeConfig = {
+  dark:     { icon: '🌙', label: 'Dark',          bg: '#0a0a0a'  },
+  light:    { icon: '☀️', label: 'Light',         bg: '#fafaf7'  },
+  system:   { icon: '💻', label: 'System',        bg: '#0a0a0a'  },
+  contrast: { icon: '◐',  label: 'High Contrast', bg: '#000000'  },
+  retro:    { icon: '⌨',  label: 'Retro',         bg: '#0b130a'  },
+};
+
+function applyTheme(theme) {
+  let resolved = theme;
+  if (theme === 'system') {
+    resolved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  document.documentElement.setAttribute('data-theme', resolved);
+  const cfg = themeConfig[theme] || themeConfig.dark;
+  themeIcon.textContent  = cfg.icon;
+  themeLabel.textContent = cfg.label;
+  themeColorMeta.setAttribute('content', themeConfig[resolved]?.bg || cfg.bg);
+  localStorage.setItem('theme', theme);
+
+  document.querySelectorAll('.theme-option').forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.theme === theme);
+  });
+}
+
+themeBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const open = themeDropdown.classList.toggle('open');
+  themeBtn.setAttribute('aria-expanded', open);
+});
+
+document.addEventListener('click', () => {
+  themeDropdown.classList.remove('open');
+  themeBtn.setAttribute('aria-expanded', 'false');
+});
+
+themeDropdown.addEventListener('click', (e) => {
+  const opt = e.target.closest('.theme-option');
+  if (!opt) return;
+  applyTheme(opt.dataset.theme);
+  themeDropdown.classList.remove('open');
+  themeBtn.setAttribute('aria-expanded', 'false');
+});
+
+// Keyboard nav in dropdown
+themeDropdown.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { themeDropdown.classList.remove('open'); themeBtn.focus(); }
+});
+
+// Init theme from storage or system
+const savedTheme = localStorage.getItem('theme') || 'dark';
+applyTheme(savedTheme);
+
+// React to system change when "system" selected
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+  if (localStorage.getItem('theme') === 'system') applyTheme('system');
+});
+
+/* ══════════════════════════════════════════════════════
+   LANYARD / SPOTIFY NOW PLAYING
+══════════════════════════════════════════════════════ */
+const spotifyWidget = document.getElementById('spotifyWidget');
+const spotifySong   = document.getElementById('spotifySong');
+const spotifyArtist = document.getElementById('spotifyArtist');
+const spotifyArt    = document.getElementById('spotifyArt');
+const spotifyLabel  = document.getElementById('spotifyLabel');
+
+async function fetchLanyard() {
+  if (DISCORD_USER_ID === 'YOUR_DISCORD_ID_HERE') {
+    // Show polite "not configured" state
+    spotifyLabel.textContent = 'Not configured';
+    spotifySong.textContent  = 'Add your Discord ID';
+    spotifyArtist.textContent = 'See <!-- CONFIG --> in script';
+    spotifyWidget.classList.add('loaded');
+    return;
+  }
+  try {
+    const res  = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_USER_ID}`);
+    const data = await res.json();
+    if (!data.success) throw new Error('Lanyard error');
+
+    if (data.data.listening_to_spotify && data.data.spotify) {
+      const sp = data.data.spotify;
+      spotifyLabel.textContent  = 'Listening now';
+      spotifySong.textContent   = sp.song;
+      spotifyArtist.textContent = sp.artist;
+      if (sp.album_art_url) {
+        spotifyArt.src = sp.album_art_url;
+        spotifyArt.alt = `${sp.album} by ${sp.artist}`;
+      }
+      spotifyWidget.classList.add('playing');
+      spotifyWidget.setAttribute('aria-label', `Currently listening: ${sp.song} by ${sp.artist}`);
+    } else {
+      spotifyLabel.textContent  = 'Not playing';
+      spotifySong.textContent   = '—';
+      spotifyArtist.textContent = 'Nothing on right now';
+    }
+  } catch (e) {
+    spotifyLabel.textContent  = 'Offline';
+    spotifySong.textContent   = '—';
+    spotifyArtist.textContent = 'Lanyard unavailable';
+  }
+  spotifyWidget.classList.add('loaded');
+}
+
+fetchLanyard();
+// Refresh every 30 seconds
+setInterval(fetchLanyard, 30000);
+
+/* ══════════════════════════════════════════════════════
+   WEATHER + LOCAL TIME
+══════════════════════════════════════════════════════ */
+const weatherTemp = document.getElementById('weatherTemp');
+const weatherIcon = document.getElementById('weatherIcon');
+const localTimEl  = document.getElementById('localTime');
+
+// WMO weather codes → emoji
+function wmoToEmoji(code) {
+  if (code === 0)             return '☀️';
+  if (code <= 3)              return '🌤';
+  if (code <= 48)             return '🌫';
+  if (code <= 67)             return '🌧';
+  if (code <= 77)             return '🌨';
+  if (code <= 82)             return '🌦';
+  if (code <= 86)             return '🌨';
+  if (code <= 99)             return '⛈';
+  return '🌡';
+}
+
+async function fetchWeather() {
+  try {
+    const res  = await fetch('https://api.open-meteo.com/v1/forecast?latitude=12.9716&longitude=77.5946&current_weather=true&temperature_unit=celsius');
+    const data = await res.json();
+    const { temperature, weathercode } = data.current_weather;
+    weatherTemp.textContent = `${Math.round(temperature)}°C`;
+    weatherIcon.textContent = wmoToEmoji(weathercode);
+    weatherIcon.setAttribute('aria-label', `Weather: ${wmoToEmoji(weathercode)}`);
+  } catch (e) {
+    weatherTemp.textContent = '—°C';
+  }
+}
+
+function updateTime() {
+  const now = new Date().toLocaleTimeString('en-US', {
+    hour: '2-digit', minute: '2-digit',
+    hour12: true,
+    timeZone: 'Asia/Kolkata'
+  });
+  localTimEl.textContent = now;
+  localTimEl.setAttribute('aria-label', `Local time in Bangalore: ${now}`);
+}
+
+fetchWeather();
+updateTime();
+setInterval(updateTime, 30000);
+
+/* ══════════════════════════════════════════════════════
+   CUSTOM CURSOR
+══════════════════════════════════════════════════════ */
+const dot  = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0;
+let ringX  = 0, ringY  = 0;
+let cursorVisible = false;
+
+if (window.matchMedia('(pointer: fine)').matches) {
+  document.body.classList.add('custom-cursor-active');
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
+    if (!cursorVisible) {
+      dot.style.opacity = '1'; ring.style.opacity = '1';
+      cursorVisible = true;
+    }
+  });
+  (function animateCursor() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.transform = `translate(${ringX - 18}px, ${ringY - 18}px)`;
+    requestAnimationFrame(animateCursor);
+  })();
+  const hoverTargets = document.querySelectorAll('a, button, .project-card, .stat-card, .ach-item, input, textarea, .tech-key, .photo-frame');
+  hoverTargets.forEach(el => {
+    el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
+  });
+  document.addEventListener('mousedown', () => ring.classList.add('click'));
+  document.addEventListener('mouseup',   () => ring.classList.remove('click'));
+  document.addEventListener('mouseleave',() => { dot.style.opacity = '0'; ring.style.opacity = '0'; cursorVisible = false; });
+}
+
+/* ══════════════════════════════════════════════════════
+   SCROLL FADE-IN
+══════════════════════════════════════════════════════ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in, .section-label').forEach(el => observer.observe(el));
+
+/* ══════════════════════════════════════════════════════
+   NAV SCROLL + ACTIVE SECTION
+══════════════════════════════════════════════════════ */
+const navEl   = document.querySelector('nav');
+const sections  = document.querySelectorAll('section[id]');
+const navLinks  = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  navEl.classList.toggle('scrolled', window.scrollY > 60);
+
+  // Clear all highlights when near the top
+  if (window.scrollY < 100) {
+    navLinks.forEach(a => { a.style.color = ''; a.setAttribute('aria-current', 'false'); });
+    return;
+  }
+
+  // A section is "active" only when its TOP edge has passed the nav bottom
+  const navBottom = navEl.getBoundingClientRect().bottom;
+  let current = '';
+  sections.forEach(s => {
+    if (s.getBoundingClientRect().top <= navBottom + 5) {
+      current = s.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(a => {
+    const isActive = !!current && a.getAttribute('href') === '#' + current;
+    a.style.color = isActive ? 'var(--text)' : '';
+    a.setAttribute('aria-current', isActive ? 'page' : 'false');
+  });
+}, { passive: true });
+
+/* ══════════════════════════════════════════════════════
+   MAGNETIC BUTTONS
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top  - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+  });
+  btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+});
+
+/* ══════════════════════════════════════════════════════
+   PROJECT CARD TILT
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width  - 0.5;
+    const y = (e.clientY - rect.top)  / rect.height - 0.5;
+    card.style.transform = `translateY(-4px) perspective(600px) rotateX(${y * -4}deg) rotateY(${x * 4}deg)`;
+  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+});
+
+/* ══════════════════════════════════════════════════════
+   INTERACTIVE TECH STACK FILTER
+══════════════════════════════════════════════════════ */
+document.querySelectorAll('.tech-key').forEach(key => {
+  key.addEventListener('click', () => {
+    const filter = key.dataset.filter;
+    document.querySelectorAll('.tech-key').forEach(k => {
+      k.classList.remove('active');
+      k.setAttribute('aria-pressed', 'false');
+    });
+    key.classList.add('active');
+    key.setAttribute('aria-pressed', 'true');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      const tags = (card.dataset.tags || '').split(' ');
+      const match = filter === 'all' || tags.includes(filter);
+      card.classList.toggle('dimmed', !match);
+      card.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+    });
+  });
+});
+
+// Clicking a tag on a card also filters
+document.querySelectorAll('.tag').forEach(tag => {
+  tag.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const tagValue = tag.dataset.tag;
+    const matchingKey = document.querySelector(`.tech-key[data-filter="${tagValue}"]`);
+    if (matchingKey) {
+      matchingKey.click();
+      matchingKey.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  });
+});
+
+/* ══════════════════════════════════════════════════════
+   CONTACT FORM
+══════════════════════════════════════════════════════ */
+async function handleSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('submitBtn');
+  const originalText = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString(),
+    });
+
+    if (response.ok) {
+      btn.textContent = 'Sent ✓';
+      btn.style.background = '#3ddc84';
+      btn.setAttribute('aria-label', 'Message sent successfully');
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.removeAttribute('aria-label');
+        btn.disabled = false;
+        form.reset();
+      }, 3000);
+    } else {
+      btn.textContent = 'Error — retry';
+      btn.style.background = '#ff5252';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    }
+  } catch (err) {
+    btn.textContent = 'Error — retry';
+    btn.style.background = '#ff5252';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 3000);
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+══════════════════════════════════════════════════════ */
+const scrollBar = document.getElementById('scroll-progress');
+if (scrollBar) {
+  window.addEventListener('scroll', () => {
+    const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    scrollBar.style.width = Math.min(pct, 100) + '%';
+  }, { passive: true });
+}
+
+/* ══════════════════════════════════════════════════════
+   HERO TICKING CLOCK (IST)
+══════════════════════════════════════════════════════ */
+const heroClock = document.getElementById('heroClockIST');
+if (heroClock) {
+  function tickClock() {
+    heroClock.textContent = new Date().toLocaleTimeString('en-US', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      hour12: true, timeZone: 'Asia/Kolkata'
+    });
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+}
+
+/* ══════════════════════════════════════════════════════
+   PWA — MANIFEST INJECTION (single-file approach)
+══════════════════════════════════════════════════════ */
+try {
+  const manifest = {
+    name: 'Aaron Savin Thomas',
+    short_name: 'Aaron ST',
+    description: 'Portfolio of Aaron Savin Thomas — Builder, Thinker, Pilot-in-training.',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#0a0a0a',
+    theme_color: '#0a0a0a',
+    icons: [
+      { src: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { src: '/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
+    ],
+    orientation: 'portrait'
+  };
+  const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+  const link = document.createElement('link');
+  link.rel   = 'manifest';
+  link.href  = URL.createObjectURL(blob);
+  document.head.appendChild(link);
+} catch(e) { /* fallback: add a real manifest.json file for full PWA support */ }
+
+/*
+  For full PWA with offline support, also create a sw.js file alongside index.html:
+
+  // sw.js
+  const CACHE = 'aaron-v1';
+  self.addEventListener('install', e => {
+    e.waitUntil(caches.open(CACHE).then(c => c.addAll(['/', '/index.html'])));
+  });
+  self.addEventListener('fetch', e => {
+    e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
+  });
+
+  Then register it by adding this at the bottom of your page:
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+*/
+</script>
+<!-- Cloudflare Pages Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4d1dd0ab279841b4966b329ba6020d8b"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>

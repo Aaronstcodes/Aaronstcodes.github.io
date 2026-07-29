@@ -394,6 +394,16 @@ html[data-theme="light"] nav.scrolled { background: rgba(250,250,247,0.98); }
   animation: orbitDrift 14s ease-in-out infinite;
 }
 
+.hero-motion span:nth-child(4) {
+  width: 18rem;
+  height: 18rem;
+  right: 10%;
+  top: 54%;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+  animation: orbitDrift 14s ease-in-out infinite;
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -502,6 +512,68 @@ html[data-theme="light"] nav.scrolled { background: rgba(250,250,247,0.98); }
   margin-bottom: 2rem;
   position: relative;
   z-index: 1;
+}
+
+.hero-ribbon {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0 0 2rem;
+  padding: 0.9rem 0;
+}
+
+.hero-ribbon::before,
+.hero-ribbon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.hero-ribbon::before { top: 0; }
+.hero-ribbon::after { bottom: 0; }
+
+.hero-pill {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  transform: translateZ(0);
+}
+
+.hero-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+  transform: translateX(-120%);
+  animation: pillSweep 6s ease-in-out infinite;
+}
+
+.hero-pill:nth-child(2n) {
+  border-color: rgba(232,255,71,0.16);
+  color: var(--accent);
+}
+
+.hero-pill:nth-child(3n) {
+  border-color: rgba(255,107,53,0.16);
+  color: var(--accent2);
+}
+
+@keyframes pillSweep {
+  0%, 35% { transform: translateX(-120%); }
+  70%, 100% { transform: translateX(120%); }
 }
 
 /* ─── Spotify Now Playing ─── */
@@ -638,6 +710,92 @@ html[data-theme="light"] nav.scrolled { background: rgba(250,250,247,0.98); }
 @keyframes scrollline {
   from { width: 20px; opacity: 0.4; }
   to   { width: 50px; opacity: 1;   }
+}
+
+.signal-marquee {
+  position: relative;
+  z-index: 1;
+  margin: 1rem 0 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.02), transparent);
+}
+
+.signal-marquee::before,
+.signal-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 14rem;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.signal-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg), transparent);
+}
+
+.signal-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg), transparent);
+}
+
+.signal-track {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  width: max-content;
+  padding: 0.95rem 0;
+  white-space: nowrap;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: marqueeScroll 26s linear infinite;
+}
+
+.signal-track.reverse {
+  animation-direction: reverse;
+  animation-duration: 32s;
+  opacity: 0.6;
+}
+
+.signal-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.signal-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  flex-shrink: 0;
+  animation: signalPulse 1.8s ease-in-out infinite;
+}
+
+.signal-item:nth-child(2n) .signal-dot { background: var(--accent2); box-shadow: 0 0 12px var(--accent2); }
+.signal-item:nth-child(3n) .signal-dot { background: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.6); }
+
+@keyframes marqueeScroll {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(-50%,0,0); }
+}
+
+@keyframes signalPulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .signal-track { gap: 1.5rem; padding: 0.8rem 0; font-size: 0.62rem; }
+  .signal-marquee::before,
+  .signal-marquee::after { width: 4rem; }
 }
 
 /* ═══════════════════════════════════════════════
@@ -2158,6 +2316,7 @@ html[data-theme="light"]    body::after { opacity: 0.018; }
     <span></span>
     <span></span>
     <span></span>
+    <span></span>
   </div>
   <div class="hero-tag" aria-label="Location and local time">Bangalore, India &nbsp;·&nbsp; <span id="heroClockIST">—:—:— —M</span></div>
   <h1>
@@ -2171,6 +2330,13 @@ html[data-theme="light"]    body::after { opacity: 0.018; }
   <div class="hero-cta">
     <a href="#projects" class="btn btn-primary">See my work →</a>
     <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+
+  <div class="hero-ribbon" aria-label="Focus areas">
+    <span class="hero-pill">Josephite</span>
+    <span class="hero-pill">bangalore based</span>
+    <span class="hero-pill">Aviation obsession</span>
+    <span class="hero-pill">16 and still learning</span>
   </div>
 
   <!-- Spotify / Lanyard Now Playing -->
@@ -2197,6 +2363,34 @@ html[data-theme="light"]    body::after { opacity: 0.018; }
   <div class="hero-scroll" aria-hidden="true">scroll</div>
 </section>
 
+<div class="signal-marquee" aria-hidden="true">
+ <div class="signal-track">
+  <span class="signal-item"><span class="signal-dot"></span> self-taught developer</span>
+  <span class="signal-item"><span class="signal-dot"></span> msfs</span>
+  <span class="signal-item"><span class="signal-dot"></span> firebase + cloudflare</span>
+  <span class="signal-item"><span class="signal-dot"></span> treetrack: shipped</span>
+  <span class="signal-item"><span class="signal-dot"></span> quant-curious</span>
+  <span class="signal-item"><span class="signal-dot"></span> code that ships</span>
+  <span class="signal-item"><span class="signal-dot"></span> self-taught developer</span>
+  <span class="signal-item"><span class="signal-dot"></span> msfs</span>
+  <span class="signal-item"><span class="signal-dot"></span> firebase + cloudflare</span>
+  <span class="signal-item"><span class="signal-dot"></span> treetrack: shipped</span>
+  <span class="signal-item"><span class="signal-dot"></span> quant-curious</span>
+  <span class="signal-item"><span class="signal-dot"></span> code that ships</span>
+</div>
+<div class="signal-track reverse">
+  <span class="signal-item"><span class="signal-dot"></span> bangalore based</span>
+  <span class="signal-item"><span class="signal-dot"></span> event head x2</span>
+  <span class="signal-item"><span class="signal-dot"></span> reads more than it codes</span>
+  <span class="signal-item"><span class="signal-dot"></span> deployed, not just built</span>
+  <span class="signal-item"><span class="signal-dot"></span> still figuring it out</span>
+  <span class="signal-item"><span class="signal-dot"></span> bangalore based</span>
+  <span class="signal-item"><span class="signal-dot"></span> event head x2</span>
+  <span class="signal-item"><span class="signal-dot"></span> reads more than it codes</span>
+  <span class="signal-item"><span class="signal-dot"></span> deployed, not just built</span>
+  <span class="signal-item"><span class="signal-dot"></span> still figuring it out</span>
+</div>
+</div>
 <!-- ═══════ ABOUT ═══════ -->
 <section id="about" aria-labelledby="about-heading">
   <div class="section-label" aria-hidden="true">About</div>
@@ -2327,14 +2521,28 @@ html[data-theme="light"]    body::after { opacity: 0.018; }
   </div>
 
   <div class="projects-grid stagger-children" id="projectsGrid">
+    <a href="https://treetrack.pages.dev/" target="_blank" rel="noopener noreferrer"
+       class="project-card fade-in"
+       data-tags="html firebase cloudinary"
+       aria-label="TreeTrack project — opens in new tab">
+      <span class="project-arrow" aria-hidden="true">↗</span>
+      <div class="project-num" aria-hidden="true">01</div>
+      <div class="project-title">TreeTrack</div>
+      <div class="project-desc">Digital tree stewardship platform built for SJBHS's Roots &amp; Relationships program. Firebase auth, Cloudinary uploads, points system, and community logging.</div>
+      <div class="project-tags" aria-label="Technologies used">
+        <span class="tag" data-tag="html">HTML/CSS/JS</span>
+        <span class="tag" data-tag="firebase">Firebase</span>
+        <span class="tag" data-tag="cloudinary">Cloudinary</span>
+      </div>
+    </a>
 
     <a href="https://firechataaron.netlify.app/" target="_blank" rel="noopener noreferrer"
        class="project-card fade-in"
        data-tags="html firebase real-time"
-       aria-label="Meme Chat project — opens in new tab">
+       aria-label="ChatApp project — opens in new tab">
       <span class="project-arrow" aria-hidden="true">↗</span>
       <div class="project-num" aria-hidden="true">01</div>
-      <div class="project-title">Meme Chat</div>
+      <div class="project-title">ChatApp</div>
       <div class="project-desc">Anonymous real-time chat — no signup, no login. Built because accounts are overrated.</div>
       <div class="project-tags" aria-label="Technologies used">
         <span class="tag" data-tag="html">HTML/CSS/JS</span>
@@ -2500,6 +2708,54 @@ html[data-theme="light"]    body::after { opacity: 0.018; }
   <h2 id="blog-heading" class="sr-only">Blog</h2>
   <div class="blog-grid stagger-children">
 
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: The Kite Runner">
+      <div class="blog-date">April 2026</div>
+      <div class="blog-title">The Kite Runner — Khaled Hosseini</div>
+      <div class="blog-excerpt">
+        A gut punch of a book about guilt, betrayal, and the long road back to redemption. Amir's cowardice as a kid haunts the entire story, and Hosseini doesn't let him or the reader off easy.
+      </div>
+    </a>
+
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: A Thousand Splendid Suns">
+      <div class="blog-date">May 2026</div>
+      <div class="blog-title">A Thousand Splendid Suns — Khaled Hosseini</div>
+      <div class="blog-excerpt">
+        Mariam and Laila's story is brutal in a way The Kite Runner isn't. It's less about one man's guilt and more about what it costs to just survive. Hard to read in places, impossible to put down.
+      </div>
+    </a>
+
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: And the Mountains Echoed">
+      <div class="blog-date">June 2026</div>
+      <div class="blog-title">And the Mountains Echoed — Khaled Hosseini</div>
+      <div class="blog-excerpt">
+        Hosseini's most sprawling book — jumps across decades and continents following one family's fallout from a single choice. Less linear than his other two, but the payoff is worth the patience.
+      </div>
+    </a>
+
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: The Great Gatsby">
+      <div class="blog-date">June 2026</div>
+      <div class="blog-title">The Great Gatsby — F. Scott Fitzgerald</div>
+      <div class="blog-excerpt">
+        Gatsby's whole life is a performance for someone who's already moved on. Fitzgerald makes the American Dream look less like ambition and more like self-destruction dressed in a nice suit.
+      </div>
+    </a>
+
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: Of Mice and Men">
+      <div class="blog-date">July 2026</div>
+      <div class="blog-title">Of Mice and Men — John Steinbeck</div>
+      <div class="blog-excerpt">
+        Short book, long shadow. George and Lennie's dream of a place of their own gets more heartbreaking the closer it gets to reach able. Steinbeck doesn't waste a single sentence.
+      </div>
+    </a>
+
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: The Alchemist">
+      <div class="blog-date">July 2026</div>
+      <div class="blog-title">The Alchemist — Paulo Coelho</div>
+      <div class="blog-excerpt">
+        Simple on the surface, but the "personal legend" idea stuck with me more than I expected. Not my usual pick, but a quick read that's easy to see why so many people swear by it.
+      </div>
+    </a>
+
     <a href="#" class="blog-card fade-in" aria-label="Blog post: Why I built a real-time chat app without any auth">
       <div class="blog-date">March 14, 2026</div>
       <div class="blog-title">Why I Built a Real-Time Chat App With Zero Authentication</div>
@@ -2508,11 +2764,11 @@ html[data-theme="light"]    body::after { opacity: 0.018; }
       </div>
     </a>
 
-    <a href="#" class="blog-card fade-in" aria-label="Blog post: Why I built a real-time chat app without any auth">
+    <a href="#" class="blog-card fade-in" aria-label="Blog post: Reading Animal Farm">
       <div class="blog-date">March 31, 2026</div>
-      <div class="blog-title">Reading Animal Farm-George Orwell</div>
+      <div class="blog-title">Reading Animal Farm — George Orwell</div>
       <div class="blog-excerpt">
-It’s a wild look at how "equality" usually just turns into a massive power trip. Basically, it’s a reminder that the people who start the revolution often end up being the worst ones in charge.
+It's a wild look at how "equality" usually just turns into a massive power trip. Basically, it's a reminder that the people who start the revolution often end up being the worst ones in charge.
       </div>
     </a>
 
